@@ -15,38 +15,46 @@ class Producto
      *
      */
     private $id;
-    public function getId()
-    {
-        return $this->id;
-    }
+
     /**
      * @var string
      * @ORM\Column(name="nombre", type="text", length=60)
      */
     private $nombre;
+
     /**
      * @var float
      * @ORM\Column(name="precio", type="decimal", scale=2)
      */
     private $precio;
+
     /**
      * @var integer
      * @ORM\Column(name="tipo", type="integer")
      */
     private $tipo;
+
     /**
      * @var string
      * @ORM\Column(name="descripcion", type="text")
      */
     private $descripcion;
+
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Comanda", mappedBy="productos", cascade={"remove"})
      */
     private $comandas;
+
     public function __construct()
     {
         $this->comandas = new ArrayCollection();
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * @param Comanda $comanda
      * @return $this
@@ -56,6 +64,7 @@ class Producto
         $this->comandas[] = $comanda;
         return $this;
     }
+
     /**
      * @param Comanda $comanda
      *
@@ -64,6 +73,7 @@ class Producto
     {
         $this->comandas->removeElement($comanda);
     }
+
     /**
      * @return int
      */
@@ -71,6 +81,7 @@ class Producto
     {
         return $this->tipo;
     }
+
     /**
      * @param int $tipo
      */
@@ -78,6 +89,7 @@ class Producto
     {
         $this->tipo=$tipo;
     }
+
     /**
      * @return mixed
      */
@@ -85,6 +97,7 @@ class Producto
     {
         return $this->nombre;
     }
+
     /**
      * @param mixed $nombre
      */
@@ -92,6 +105,7 @@ class Producto
     {
         $this->nombre=$nombre;
     }
+
     /**
      * @return float
      */
@@ -99,6 +113,7 @@ class Producto
     {
         return $this->precio;
     }
+
     /**
      * @param float $precio
      */
@@ -106,6 +121,7 @@ class Producto
     {
         $this->precio=$precio;
     }
+
     /**
      * @return mixed
      */
@@ -113,11 +129,20 @@ class Producto
     {
         return $this->descripcion;
     }
+
     /**
      * @param mixed $descripcion
      */
     public function setDescripcion($descripcion)
     {
         $this->descripcion=$descripcion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getComandas()
+    {
+        return $this->comandas;
     }
 }

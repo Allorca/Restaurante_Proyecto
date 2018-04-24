@@ -1,3 +1,22 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+app_restaurante_inicio:
+  path: /restaurante
+  controller: App\Controller\InicioRestauranteController::inicioAction
+
+app_restaurante_indice:
+  path: /restaurante/inicio
+  controller: App\Controller\InicioRestauranteController::indiceAction
+
+app_cocina_inicio:
+  path: /restaurante/cocina
+  controller: App\Controller\InicioRestauranteController::cocinaAction
+
+app_camarero_inicio:
+  path: /restaurante/camarero
+  controller: App\Controller\InicioRestauranteController::camareroAction
+
+
+

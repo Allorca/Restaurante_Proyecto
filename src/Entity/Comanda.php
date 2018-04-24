@@ -23,21 +23,35 @@ class Comanda
      * @ORM\Column(name="estado", type="text")
      */
     private $estado;
+
     /**
      * @var double
      * @ORM\Column(name="cuenta", type="decimal", scale=2)
      */
     private $cuenta;
+
     /**
      * @var integer
      * @ORM\Column(name="mesa", type="integer")
      */
     private $mesa;
+
     /**
      * @var string
      * @ORM\Column(name="camarero", type="text")
      */
     private $camarero;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Producto", mappedBy="comandas")
+     */
+    private $productos;
+
+    public function __construct()
+    {
+        $this->productos = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -45,6 +59,7 @@ class Comanda
     {
         return $this->productos;
     }
+
     /**
      * @return float
      */
@@ -52,6 +67,7 @@ class Comanda
     {
         return $this->cuenta;
     }
+
     /**
      * @param float $cuenta
      */
@@ -59,6 +75,7 @@ class Comanda
     {
         $this->cuenta=$cuenta;
     }
+
     /**
      * @return int
      */
@@ -66,6 +83,7 @@ class Comanda
     {
         return $this->mesa;
     }
+
     /**
      * @param int $mesa
      */
@@ -73,6 +91,7 @@ class Comanda
     {
         $this->mesa=$mesa;
     }
+
     /**
      * @return string
      */
@@ -80,6 +99,7 @@ class Comanda
     {
         return $this->camarero;
     }
+
     /**
      * @param string $camarero
      */
@@ -87,14 +107,7 @@ class Comanda
     {
         $this->camarero=$camarero;
     }
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Producto", mappedBy="comandas", cascade={"remove"})
-     */
-    private $productos;
-    public function __construct()
-    {
-        $this->productos = new ArrayCollection();
-    }
+
     /**
      * @param Producto $producto
      * @return $this
@@ -104,6 +117,7 @@ class Comanda
         $this->productos[] = $producto;
         return $this;
     }
+
     /**
      * @param Producto $producto
      */
@@ -111,6 +125,7 @@ class Comanda
     {
         $this->productos->removeElement($producto);
     }
+
     /**
      * @return mixed
      */
@@ -118,6 +133,7 @@ class Comanda
     {
         return $this->estado;
     }
+
     /**
      * @param mixed $estado
      */
