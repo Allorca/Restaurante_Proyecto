@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block title %}Crear Producto{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <form id="form1" method="post" action="{{ action }}" novalidate="novalidate">
+        <!-- form is based on User Entity -->
+        <!--{{ dump(form.vars.value) }} Para mostrar los datos de ese formulario. -->
+        <!-- http://stackoverflow.com/questions/12497133/directly-access-a-form-fields-value-when-overriding-widget-in-a-twig-template -->
+        <ul>
+            {% for error in form.vars.errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div>{{ form_errors(form.nombre) }} {{ form_label(form.nombre) }}: {{ form_widget(form.nombre) }}</div>
+        <br>
+        <div>{{ form_label(form.precio) }}: {{ form_widget(form.precio) }}</div>
+        <br>
+        <div>{{ form_label(form.tipo) }}: {{ form_widget(form.tipo) }}</div>
+        <br>
+        <div>{{ form_label(form.descripcion) }}: {{ form_widget(form.descripcion) }}</div>
+        {{ form_rest(form) }} <!-- prints hidden fields and others -->
+        <br>
+        <input type="submit" value="Send"> &nbsp; &nbsp; <a href="{{ path('app_producto') }}">Return to index</a>
+        <br>
+        <br>
+
+    </form>
+{% endblock %}
