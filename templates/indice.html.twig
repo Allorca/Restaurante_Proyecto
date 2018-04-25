@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title %}Índice{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <a href="{{ path('app_camarero') }}" class="btn btn-outline-info btn-lg btn-block" role="button" aria-pressed="true">CAMARERO</a><br>
+    <a href="{{ path('app_cocina') }}" class="btn btn-outline-info btn-lg btn-block" role="button" aria-pressed="true">COCINA</a><br>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block title %}Inicio{% endblock %}
+{% block stylesheets %}
+     <style>
+         .ft{background-image: url("/images/rapida.jpg"); height: 600px; background-repeat: no-repeat; background-size: 100%;}
+         a{margin-left: 43%;margin-top: 2%;}
+         .ft2{background-image: url("/images/logo.png"); background-repeat: no-repeat; width: 240px; height: 140px; background-size: 100%; margin-left: 38%; margin-top: 7%; position: absolute;}
+     </style>
+{% endblock %}
+{% block body %}
+    <div class="ft">
+        <div class="ft2"></div>
+    </div>
+    <p><a href="{{ path('app_indice') }}" class="btn btn-outline-warning btn-lg" role="button" aria-pressed="true">ENTRAR</a></p>
+{% endblock %}
