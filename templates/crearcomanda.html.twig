@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}Crear Producto{% endblock %}
+{% block title %}Crear Comanda{% endblock %}
 {% block stylesheets %}
 
 {% endblock %}
@@ -14,16 +14,12 @@
             {% endfor %}
         </ul>
         </div>
-        <div>{{ form_errors(form.nombre) }} {{ form_label(form.nombre) }}: {{ form_widget(form.nombre) }}</div>
+        <div>{{ form_errors(form.mesa) }} {{ form_label(form.mesa) }}: {{ form_widget(form.mesa) }}</div>
         <br>
-        <div>{{ form_label(form.precio) }}: {{ form_widget(form.precio) }}</div>
-        <br>
-        <div>{{ form_label(form.tipo) }}: {{ form_widget(form.tipo) }}</div>
-        <br>
-        <div>{{ form_label(form.descripcion) }}: {{ form_widget(form.descripcion) }}</div>
+        <div>{{ form_label(form.camarero) }}: {{ form_widget(form.camarero) }}</div>
         {{ form_rest(form) }} <!-- prints hidden fields and others -->
         <br>
-        <input type="submit" value="Crear"> &nbsp; &nbsp; <a href="{{ path('app_producto') }}">Volver</a>
+        <input type="submit" value="Crear"> &nbsp; &nbsp; <a href="{{ path('app_camarero') }}">Volver</a>
         <br>
         <br>
 

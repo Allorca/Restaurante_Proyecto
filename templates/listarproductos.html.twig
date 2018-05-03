@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Listar Productos{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    {% for producto in productos %}
+        <li>Nombre: {{ producto.nombre }} </li>
+        <li>Precio: {{ producto.precio }}</li>
+        <li>Tipo: {{ producto.tipo }}</li>
+        <li>Descripción: {{ producto.descripcion }}</li>
+        <br>
+        <a href="#">Actualizar</a></li> &nbsp;&nbsp; <a href="#">Eliminar</a></li>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+    <a href="{{ path('app_producto') }}">Volver</a></li>
+{% endblock %}

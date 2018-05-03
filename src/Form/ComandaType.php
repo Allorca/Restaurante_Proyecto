@@ -18,8 +18,6 @@ class ComandaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('estado', TextType::class, ['error_bubbling' => true])
-            ->add('cuenta', TextType::class, ['error_bubbling' => true]) /*El error building es para tratar los errores de los campos como errores del fomrulario.*/
             ->add('camarero', TextType::class, ['error_bubbling' => true])
             ->add('mesa', TextType::class, ['error_bubbling' => true])
         ;

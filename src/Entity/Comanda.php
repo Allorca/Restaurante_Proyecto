@@ -19,16 +19,10 @@ class Comanda
         return $this->id;
     }
     /**
-     * @var string
+     * @var integer
      * @ORM\Column(name="estado", type="text")
      */
     private $estado;
-
-    /**
-     * @var double
-     * @ORM\Column(name="cuenta", type="decimal", scale=2)
-     */
-    private $cuenta;
 
     /**
      * @var integer
@@ -43,13 +37,14 @@ class Comanda
     private $camarero;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Producto", mappedBy="comandas")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Producto", inversedBy="comandas", cascade="persist")
      */
     private $productos;
 
     public function __construct()
     {
         $this->productos = new ArrayCollection();
+        $this->estado = "En Preparación";
     }
 
     /**
@@ -58,22 +53,6 @@ class Comanda
     public function getProductos()
     {
         return $this->productos;
-    }
-
-    /**
-     * @return float
-     */
-    public function getCuenta()
-    {
-        return $this->cuenta;
-    }
-
-    /**
-     * @param float $cuenta
-     */
-    public function setCuenta($cuenta)
-    {
-        $this->cuenta=$cuenta;
     }
 
     /**
@@ -140,5 +119,18 @@ class Comanda
     public function setEstado($estado)
     {
         $this->estado=$estado;
+    }
+
+    /**
+     *@param Producto $producto
+     */
+    public function calculaCuenta()
+    {
+        $cuenta = 0;
+        foreach($this->productos as $prod)
+        {
+            $cuenta = $cuenta + $prod->getPrecio();
+        }
+        return $cuenta;
     }
 }

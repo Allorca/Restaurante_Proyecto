@@ -58,4 +58,17 @@ class productosController extends Controller
         }
     }
 
+    /**
+     *@return \Symfony\Component\HttpFoundation\Response
+     * @Route(path="/productos/listar", name="app_producto_listar")
+     */
+    public function hacerListarAccion(EntityManagerInterface $em)
+    {
+        $productoRepo = $em->getRepository('App\Entity\Producto');
+        $productos = $productoRepo->findAll();
+        return $this->render('listarproductos.html.twig',
+            ['productos'=>$productos]
+        );
+
+    }
 }

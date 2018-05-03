@@ -41,7 +41,7 @@ class Producto
     private $descripcion;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Comanda", mappedBy="productos", cascade={"remove"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Comanda", mappedBy="productos")
      */
     private $comandas;
 
