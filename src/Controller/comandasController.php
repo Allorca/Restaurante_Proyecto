@@ -8,12 +8,16 @@
 
 namespace App\Controller;
 use App\Entity\Comanda;
+use App\Entity\Producto;
 use App\Form\ComandaType;
+
+use App\Form\ProductoType;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Doctrine\ORM\EntityManagerInterface;
+
+
 
 
 class comandasController extends Controller

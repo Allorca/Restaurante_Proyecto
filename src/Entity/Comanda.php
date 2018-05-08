@@ -14,12 +14,14 @@ class Comanda
      * @ORM\Column(type="integer")
      */
     private $id;
+
     public function getId()
     {
         return $this->id;
     }
+
     /**
-     * @var integer
+     * @var string
      * @ORM\Column(name="estado", type="text")
      */
     private $estado;
@@ -44,8 +46,9 @@ class Comanda
     public function __construct()
     {
         $this->productos = new ArrayCollection();
-        $this->estado = "En Preparación";
+        $this->estado = "En preparación";
     }
+
 
     /**
      * @return mixed
