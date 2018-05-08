@@ -47,8 +47,12 @@ class ComandaType extends AbstractType
                 'class'         => Producto::class,
                 'query_builder' => function(ProductoRepository $repo3){
                     return $repo3->createQueryBuilder('p')->where('p.tipo = :tipo')
-                        ->setParameter('tipo', '3');
-                }))
+                        ->setParameter('tipo', '1');
+
+                },
+                'multiple' => true
+                ))
+
             ->add('save', SubmitType::class, array('label' => 'añadir'))
         ;
     }

@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c9e8a1f-9847-4916-ae96-87dd503d809b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/comandasController.php" afterPath="$PROJECT_DIR$/src/Controller/comandasController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Comanda.php" afterPath="$PROJECT_DIR$/src/Entity/Comanda.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Entity/Producto.php" afterPath="$PROJECT_DIR$/src/Entity/Producto.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/ComandaType.php" afterPath="$PROJECT_DIR$/src/Form/ComandaType.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +48,8 @@
       <file leaf-file-name="ComandaType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Form/ComandaType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+            <state relative-caret-position="145">
+              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
               <folding>
                 <element signature="e#109#132#0#PHP" expanded="true" />
               </folding>
@@ -117,8 +113,8 @@
         <option value="$PROJECT_DIR$/src/Controller/productosController.php" />
         <option value="$PROJECT_DIR$/src/Controller/comandasController.php" />
         <option value="$PROJECT_DIR$/src/Entity/Comanda.php" />
-        <option value="$PROJECT_DIR$/src/Form/ComandaType.php" />
         <option value="$PROJECT_DIR$/src/Entity/Producto.php" />
+        <option value="$PROJECT_DIR$/src/Form/ComandaType.php" />
       </list>
     </option>
   </component>
@@ -258,12 +254,12 @@
       <workItem from="1525283558893" duration="2106000" />
       <workItem from="1525353521869" duration="9318000" />
       <workItem from="1525795494947" duration="4545000" />
-      <workItem from="1525800116348" duration="3404000" />
+      <workItem from="1525800116348" duration="4652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53168000" />
+    <option name="totallyTimeSpent" value="54416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -589,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Form/ComandaType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        <state relative-caret-position="145">
+          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
           <folding>
             <element signature="e#109#132#0#PHP" expanded="true" />
           </folding>
