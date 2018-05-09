@@ -43,12 +43,17 @@ class Comanda
      */
     private $productos;
 
+    private $prod1;
+
+    private $prod2;
+
+    private $prod3;
+
     public function __construct()
     {
         $this->productos = new ArrayCollection();
         $this->estado = "En preparación";
     }
-
 
     /**
      * @return mixed
@@ -136,4 +141,54 @@ class Comanda
         }
         return $cuenta;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProd1()
+    {
+        return $this->prod1;
+    }
+
+    /**
+     * @param mixed $prod1
+     */
+    public function setProd1($prod1)
+    {
+        $this->prod1 = $prod1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProd2()
+    {
+        return $this->prod2;
+    }
+
+    /**
+     * @param mixed $prod2
+     */
+    public function setProd2($prod2)
+    {
+        $this->prod2 = $prod2;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProd3()
+    {
+        return $this->prod3;
+    }
+
+    /**
+     * @param mixed $prod3
+     */
+    public function setProd3($prod3)
+    {
+        $this->prod3 = $prod3;
+    }
+
+
 }

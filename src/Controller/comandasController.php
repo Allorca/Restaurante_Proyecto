@@ -47,6 +47,13 @@ class comandasController extends Controller
         $comanda = new Comanda();
         $formulario = $this->createForm(ComandaType::class, $comanda);
         $formulario->handleRequest($request);
+        $prod1 = $comanda->getProd1();
+        $prod2 = $comanda->getProd2();
+        $prod3 = $comanda->getProd3();
+        $comanda->addProducto($prod1);
+        $comanda->addProducto($prod2);
+        $comanda->addProducto($prod3);
+
         if ($formulario->isValid()) {
             $em->persist($comanda);
             $em->flush();

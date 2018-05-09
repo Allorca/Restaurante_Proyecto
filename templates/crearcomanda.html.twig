@@ -17,7 +17,12 @@
         <div>{{ form_errors(form.mesa) }} {{ form_label(form.mesa) }}: {{ form_widget(form.mesa) }}</div>
         <br>
         <div>{{ form_label(form.camarero) }}: {{ form_widget(form.camarero) }}</div>
-        {{ form_rest(form) }} <!-- prints hidden fields and others -->
+        <br>
+        <div>{{ form_label(form.prod1) }}: {{ form_widget(form.prod1) }}</div>
+        <br>
+        <div>{{ form_label(form.prod2) }}: {{ form_widget(form.prod2) }}</div>
+        <br>
+        <div>{{ form_label(form.prod3) }}: {{ form_widget(form.prod3) }}</div>
         <br>
         <input type="submit" value="Crear"> &nbsp; &nbsp; <a href="{{ path('app_camarero') }}">Volver</a>
         <br>
