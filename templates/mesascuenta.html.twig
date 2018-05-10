@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %}Cocina{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <div>
+        <a href="{{ path('app_cuenta_mesa', {'numeromesa': 1})}}"><img src="/images/mesa1.jpg"></a>
+        <a href="{{ path('app_cuenta_mesa', {'numeromesa': 2})}}"><img src="/images/mesa2.jpg"></a>
+        <a href="{{ path('app_cuenta_mesa', {'numeromesa': 3})}}"><img src="/images/mesa3.jpg"></a>
+        <a href="{{ path('app_cuenta_mesa', {'numeromesa': 4})}}"><img src="/images/mesa4.jpg"></a>
+        <a href="{{ path('app_cuenta_mesa', {'numeromesa': 5})}}"><img src="/images/mesa5.jpg"></a>
+    </div>
+{% endblock %}

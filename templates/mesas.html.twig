@@ -6,7 +6,9 @@
 {% block body %}
     <div>
         <a href="{{ path('app_form_comanda', {'numeromesa': 1})}}"><img src="/images/mesa1.jpg"></a>
-        <a href="URL DESTINO"><img src="URL DE LA IMAGEN"></a>
-        <a href="URL DESTINO"><img src="URL DE LA IMAGEN"></a>
+        <a href="{{ path('app_form_comanda', {'numeromesa': 2})}}"><img src="/images/mesa2.jpg"></a>
+        <a href="{{ path('app_form_comanda', {'numeromesa': 3})}}"><img src="/images/mesa3.jpg"></a>
+        <a href="{{ path('app_form_comanda', {'numeromesa': 4})}}"><img src="/images/mesa4.jpg"></a>
+        <a href="{{ path('app_form_comanda', {'numeromesa': 5})}}"><img src="/images/mesa5.jpg"></a>
     </div>
 {% endblock %}
