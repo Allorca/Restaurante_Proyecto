@@ -27,7 +27,6 @@ class ComandaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('mesa', IntegerType::class, array('label'=> 'Num. Mesa', 'error_bubbling'=>true))
             ->add('camarero', TextType::class, array('label'=>'Camarero', 'error_bubbling'=>true))
             ->add('prod1', EntityType::class, array(
                 'label'         => 'Hamburguesa',

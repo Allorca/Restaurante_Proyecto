@@ -9,6 +9,7 @@
 namespace App\Controller;
 use App\Entity\Comanda;
 use App\Entity\Producto;
+use App\Entity\Mesa;
 use App\Form\ComandaType;
 
 use App\Form\ProductoType;
@@ -24,27 +25,33 @@ class comandasController extends Controller
 {
     /**
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route(path="/comandas", name="app_form_comanda")
+     * @Route(path="/comandas{numeromesa}", name="app_form_comanda")
      */
-    public function crearAccion()
+    public function crearAccion($numeromesa)
     {
-        $action = $this->generateUrl('app_comanda_creando');
+        $action = $this->generateUrl('app_comanda_creando', array('numeromesa' => $numeromesa));
         $comanda = new Comanda();
         $form = $this->createForm(ComandaType::class, $comanda);
 
         return $this->render('crearcomanda.html.twig',
             ['action' => $action,
-                'form' => $form->createView()]
+                'form' => $form->createView()
+            ]
         );
     }
 
     /**
      *@return \Symfony\Component\HttpFoundation\Response
-     * @Route(path="/comandas/crear", name="app_comanda_creando")
+     * @Route(path="/comandas/crear{numeromesa}", name="app_comanda_creando")
      */
-    public function hacerCrearAccion(EntityManagerInterface $em, Request $request)
+    public function hacerCrearAccion(EntityManagerInterface $em, Request $request, $numeromesa)
     {
         $comanda = new Comanda();
+
+        $m = $this->getDoctrine()->getManager();
+        $repository = $m->getRepository('App:Mesa');
+        $mesa = $repository->find($numeromesa);
+
         $formulario = $this->createForm(ComandaType::class, $comanda);
         $formulario->handleRequest($request);
         $prod1 = $comanda->getProd1();
@@ -53,6 +60,7 @@ class comandasController extends Controller
         $comanda->addProducto($prod1);
         $comanda->addProducto($prod2);
         $comanda->addProducto($prod3);
+        $comanda->setMesa($mesa);
 
         if ($formulario->isValid()) {
             $em->persist($comanda);

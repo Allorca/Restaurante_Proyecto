@@ -27,8 +27,7 @@ class Comanda
     private $estado;
 
     /**
-     * @var integer
-     * @ORM\Column(name="mesa", type="integer")
+     *@ORM\ManyToOne(targetEntity="Mesa", inversedBy="comandas")
      */
     private $mesa;
 
@@ -64,7 +63,7 @@ class Comanda
     }
 
     /**
-     * @return int
+     * @return mixed
      */
     public function getMesa()
     {
@@ -72,12 +71,14 @@ class Comanda
     }
 
     /**
-     * @param int $mesa
+     * @param mixed $mesa
      */
     public function setMesa($mesa)
     {
-        $this->mesa=$mesa;
+        $this->mesa = $mesa;
     }
+
+
 
     /**
      * @return string
