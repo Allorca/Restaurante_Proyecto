@@ -3,6 +3,7 @@
 namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Producto;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MesaRepository")
@@ -25,6 +26,11 @@ class Mesa
      * @ORM\OneToMany(targetEntity="Comanda", mappedBy="mesa", cascade={"remove"})
      */
     private $comandas;
+
+    /**
+     * @ORM\Column(name="cuenta", type="decimal", scale=2)
+     */
+    private $cuenta;
 
     public function __construct()
     {
@@ -68,7 +74,7 @@ class Mesa
         $this->comandas = $comandas;
     }
 
-    public function calcularPrecio()
+    public function calculaPrecio()
     {
         $cuenta = 0;
         foreach($this->comandas as $comanda)
@@ -76,8 +82,11 @@ class Mesa
             $cuenta = $cuenta + $comanda->calculaCuenta();
         }
         $this->comandas = [];
+        $this->cuenta = $cuenta;
         return $cuenta;
+
     }
+
 
     /**
      * @param Comanda $comanda
@@ -88,5 +97,25 @@ class Mesa
         $this->comandas[] = $comanda;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCuenta()
+    {
+        return $this->cuenta;
+    }
+
+    /**
+     * @param mixed $cuenta
+     */
+    public function setCuenta($cuenta)
+    {
+        $this->cuenta = $cuenta;
+    }
+
+
+
+
 
 }

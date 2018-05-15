@@ -38,29 +38,11 @@ class cuentaController extends Controller
         $repository = $m->getRepository(Mesa::class);
         $mesa = $repository->find($numeromesa);
         $comandas = $mesa->getComandas();
-        $resultado = "";
-        foreach($comandas as $comanda)
-        {
-            $id_comanda = $comanda->getId();
-            $resultado = $resultado + "Comanda " + $id_comanda + ": ";
-            $productos = $comanda->getProductos();
-            foreach ($productos as $producto)
-            {
-                $id_producto = $producto->getId();
-                $nombre_producto = $producto->getNombre();
-                $precio_producto = $producto->getPrecio();
-                $resultado = $resultado = "Producto " + $id_producto + ": " + $nombre_producto + ". " + "Precio: " + $precio_producto;
-            }
-            $precio_comanda = $comanda->calculaCuenta();
-            $resultado = $resultado + "Precio Comanda: " + $precio_comanda + ". ";
+        $cuentatotal = $mesa->calculaPrecio();
 
-        }
-        $precio_mesa = $mesa->calculaPrecio();
-        $resultado= $resultado + "Cuenta Total: " + $precio_mesa;
-        $em->persist($comanda);
-        $em->flush();
         return $this->render('cuenta.html.twig',
-            ['resultado' => $resultado]);
+            ['comandas' => $comandas,
+                'cuentatotal' => $cuentatotal]);
     }
 
 }
