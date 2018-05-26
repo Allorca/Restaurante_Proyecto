@@ -79,9 +79,11 @@ class Mesa
         $cuenta = 0;
         foreach($this->comandas as $comanda)
         {
-            $cuenta = $cuenta + $comanda->calculaCuenta();
+            if($comanda->getEstado()=="Servido")
+            {
+                $cuenta = $cuenta + $comanda->calculaCuenta();
+            }
         }
-        $this->comandas = [];
         $this->cuenta = $cuenta;
         return $cuenta;
 

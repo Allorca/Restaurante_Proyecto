@@ -56,6 +56,7 @@ class productosController extends Controller
             $em->flush();
             return $this->redirectToRoute('app_producto');
         }
+        return $this->redirectToRoute('app_producto');
     }
 
     /**
@@ -69,6 +70,54 @@ class productosController extends Controller
         return $this->render('listarproductos.html.twig',
             ['productos'=>$productos]
         );
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route(path="/productos/actualizar{id}", name="app_producto_actualizar")
+     */
+    public function actualizarAction(EntityManagerInterface $em, $id)
+    {
+        $productRepo = $em->getRepository('\App\Entity\Producto');
+        $product = $productRepo->find($id);
+        $form = $this->createForm(ProductoType::class, $product);
+        return $this->render('actualizarproducto.html.twig',
+            ['producto' => $product,
+                'form'=> $form->createView()]
+        );
+    }
+
+    /**
+     *@param Request $request
+     *@return \Symfony\Component\HttpFoundation\Response
+     *@Route(path="/productos/actualizando{id}", name="app_producto_haceractualizar")
+     */
+    public function hacerActualizarAccion(EntityManagerInterface $em, Request $request, $id)
+    {
+        $productRepo = $em->getRepository('App\Entity\Producto');
+        $product = $productRepo->find($id);
+        $form = $this->createForm(ProductoType::class, $product);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em->flush();
+            return $this->redirectToRoute('app_producto_listar');
+        }
+        return $this->redirectToRoute('app_producto_listar');
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route(path="/productos/eliminando{id}", name="app_producto_eliminar")
+     */
+    public function eliminarAccion(EntityManagerInterface $em, $id)
+    {
+        $productRepo = $em->getRepository('App\Entity\Producto'); //<- Llamamos al repositorio para poder actualizar.
+        $product = $productRepo->find($id);
+        $em->remove($product);
+        $em->flush();
+        return $this->redirectToRoute('app_producto_listar');
 
     }
 }

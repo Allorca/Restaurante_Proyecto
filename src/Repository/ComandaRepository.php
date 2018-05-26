@@ -18,7 +18,20 @@ class ComandaRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Comanda::class);
     }
-
+    /**
+     * @param $estado
+     * @return array
+     * @return Comanda[] Returns an array of Comanda objects
+     */
+    public function findByEstado($estado)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.estado = :estado')
+            ->setParameter('estado', $estado)
+            ->orderBy('p.mesa', 'ASC')
+            ->getQuery();
+        return $qb->execute();
+    }
 //    /**
 //     * @return Comanda[] Returns an array of Comanda objects
 //     */
@@ -35,7 +48,6 @@ class ComandaRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Comanda
     {

@@ -10,10 +10,10 @@
         <li>Tipo: {{ producto.tipo }}</li>
         <li>Descripción: {{ producto.descripcion }}</li>
         <br>
-        <a href="#">Actualizar</a></li> &nbsp;&nbsp; <a href="#">Eliminar</a></li>
+        <a href="{{ path('app_producto_actualizar', {'id': producto.id}) }}">Actualizar</a> &nbsp;&nbsp; <a href="{{ path('app_producto_eliminar', {'id': producto.id}) }}">Eliminar</a>
         <br>
         <br>
         <br>
     {% endfor %}
-    <a href="{{ path('app_producto') }}">Volver</a></li>
+    <a href="{{ path('app_producto') }}">Volver</a>
 {% endblock %}
