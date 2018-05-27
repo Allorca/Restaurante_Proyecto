@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Camarero;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Camarero|null find($id, $lockMode = null, $lockVersion = null)
  * @method Camarero|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class CamareroRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Camarero::class);
     }
-
 //    /**
 //     * @return Camarero[] Returns an array of Camarero objects
 //     */
@@ -35,7 +31,6 @@ class CamareroRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Camarero
     {

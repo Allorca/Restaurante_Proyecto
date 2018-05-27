@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,51 +13,39 @@ class Comanda
      * @ORM\Column(type="integer")
      */
     private $id;
-
     public function getId()
     {
         return $this->id;
     }
-
     /**
      * @var string
      * @ORM\Column(name="estado", type="text")
      */
     private $estado;
-
     /**
      *@ORM\ManyToOne(targetEntity="Mesa", inversedBy="comandas")
      */
     private $mesa;
-
     /**
-     * @var string
-     * @ORM\Column(name="camarero", type="text")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Camarero", inversedBy="comandas")
      */
     private $camarero;
-
     /**
-     * @ORM\Column(name="precio", type="decimal", scale=2)
+     * @ORM\Column(name="precio", type="decimal", scale=2, nullable=true)
      */
     private $precio;
-
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Producto", inversedBy="comandas", cascade="persist")
      */
     private $productos;
-
     private $prod1;
-
     private $prod2;
-
     private $prod3;
-
     public function __construct()
     {
         $this->productos = new ArrayCollection();
         $this->estado = "En preparación";
     }
-
     /**
      * @return mixed
      */
@@ -66,41 +53,20 @@ class Comanda
     {
         return $this->productos;
     }
-
     /**
-     * @return mixed
+     * @return int
      */
     public function getMesa()
     {
         return $this->mesa;
     }
-
     /**
-     * @param mixed $mesa
+     * @param int $mesa
      */
     public function setMesa($mesa)
     {
-        $this->mesa = $mesa;
+        $this->mesa=$mesa;
     }
-
-
-
-    /**
-     * @return string
-     */
-    public function getCamarero()
-    {
-        return $this->camarero;
-    }
-
-    /**
-     * @param string $camarero
-     */
-    public function setCamarero($camarero)
-    {
-        $this->camarero=$camarero;
-    }
-
     /**
      * @param Producto $producto
      * @return $this
@@ -110,7 +76,6 @@ class Comanda
         $this->productos[] = $producto;
         return $this;
     }
-
     /**
      * @param Producto $producto
      */
@@ -118,7 +83,6 @@ class Comanda
     {
         $this->productos->removeElement($producto);
     }
-
     /**
      * @return mixed
      */
@@ -126,7 +90,6 @@ class Comanda
     {
         return $this->estado;
     }
-
     /**
      * @param mixed $estado
      */
@@ -134,7 +97,6 @@ class Comanda
     {
         $this->estado=$estado;
     }
-
     /**
      *@param Producto $producto
      */
@@ -148,7 +110,6 @@ class Comanda
         $this->precio = $cuenta;
         return $cuenta;
     }
-
     /**
      * @return mixed
      */
@@ -156,7 +117,6 @@ class Comanda
     {
         return $this->prod1;
     }
-
     /**
      * @param mixed $prod1
      */
@@ -164,7 +124,6 @@ class Comanda
     {
         $this->prod1 = $prod1;
     }
-
     /**
      * @return mixed
      */
@@ -172,7 +131,6 @@ class Comanda
     {
         return $this->prod2;
     }
-
     /**
      * @param mixed $prod2
      */
@@ -180,7 +138,6 @@ class Comanda
     {
         $this->prod2 = $prod2;
     }
-
     /**
      * @return mixed
      */
@@ -188,7 +145,6 @@ class Comanda
     {
         return $this->prod3;
     }
-
     /**
      * @param mixed $prod3
      */
@@ -196,7 +152,20 @@ class Comanda
     {
         $this->prod3 = $prod3;
     }
-
+    /**
+     * @return mixed
+     */
+    public function getCamarero()
+    {
+        return $this->camarero;
+    }
+    /**
+     * @param mixed $camarero
+     */
+    public function setCamarero($camarero)
+    {
+        $this->camarero=$camarero;
+    }
     /**
      * @return mixed
      */
@@ -204,16 +173,11 @@ class Comanda
     {
         return $this->precio;
     }
-
     /**
      * @param mixed $precio
      */
     public function setPrecio($precio)
     {
-        $this->precio = $precio;
+        $this->precio=$precio;
     }
-
-
-
-
 }

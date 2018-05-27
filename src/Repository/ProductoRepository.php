@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Producto;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Producto|null find($id, $lockMode = null, $lockVersion = null)
  * @method Producto|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,6 @@ class ProductoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Producto::class);
     }
-
 //    /**
 //     * @return Producto[] Returns an array of Producto objects
 //     */
@@ -35,7 +31,6 @@ class ProductoRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Producto
     {

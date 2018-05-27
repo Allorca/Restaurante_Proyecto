@@ -1,11 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Alexis
+ * User: JuanMa
  * Date: 25/04/2018
- * Time: 17:58
+ * Time: 23:46
  */
-
 namespace App\Controller;
 use App\Entity\Producto;
 use App\Form\ProductoType;
@@ -14,7 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Doctrine\ORM\EntityManagerInterface;
-
 class productosController extends Controller
 {
     /**
@@ -25,7 +23,6 @@ class productosController extends Controller
     {
         return $this->render('producto.html.twig');
     }
-
     /**
      *@return \Symfony\Component\HttpFoundation\Response
      * @Route(path="/productos/formulario", name="app_form_producto")
@@ -35,13 +32,11 @@ class productosController extends Controller
         $action = $this->generateUrl('app_producto_creando');
         $product = new Producto();
         $form = $this->createForm(ProductoType::class, $product);
-
         return $this->render('crearproducto.html.twig',
             ['action' => $action,
                 'form' => $form->createView()]
         );
     }
-
     /**
      *@return \Symfony\Component\HttpFoundation\Response
      * @Route(path="/productos/crear", name="app_producto_creando")
@@ -56,9 +51,7 @@ class productosController extends Controller
             $em->flush();
             return $this->redirectToRoute('app_producto');
         }
-        return $this->redirectToRoute('app_producto');
     }
-
     /**
      *@return \Symfony\Component\HttpFoundation\Response
      * @Route(path="/productos/listar", name="app_producto_listar")
@@ -71,14 +64,13 @@ class productosController extends Controller
             ['productos'=>$productos]
         );
     }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route(path="/productos/actualizar{id}", name="app_producto_actualizar")
      */
     public function actualizarAction(EntityManagerInterface $em, $id)
-    {
+    {   ini_set('memory_limit', '512M');
         $productRepo = $em->getRepository('\App\Entity\Producto');
         $product = $productRepo->find($id);
         $form = $this->createForm(ProductoType::class, $product);
@@ -87,7 +79,6 @@ class productosController extends Controller
                 'form'=> $form->createView()]
         );
     }
-
     /**
      *@param Request $request
      *@return \Symfony\Component\HttpFoundation\Response
@@ -95,6 +86,7 @@ class productosController extends Controller
      */
     public function hacerActualizarAccion(EntityManagerInterface $em, Request $request, $id)
     {
+        ini_set('memory_limit', '512M');
         $productRepo = $em->getRepository('App\Entity\Producto');
         $product = $productRepo->find($id);
         $form = $this->createForm(ProductoType::class, $product);
@@ -105,7 +97,6 @@ class productosController extends Controller
         }
         return $this->redirectToRoute('app_producto_listar');
     }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
@@ -118,6 +109,5 @@ class productosController extends Controller
         $em->remove($product);
         $em->flush();
         return $this->redirectToRoute('app_producto_listar');
-
     }
 }

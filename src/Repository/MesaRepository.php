@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Repository;
-
 use App\Entity\Mesa;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-
 /**
  * @method Mesa|null find($id, $lockMode = null, $lockVersion = null)
  * @method Mesa|null findOneBy(array $criteria, array $orderBy = null)
@@ -18,7 +15,14 @@ class MesaRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Mesa::class);
     }
-
+    public function findByNum($numero)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->andWhere('p.numero = :numero')
+            ->setParameter('numero', $numero)
+            ->getQuery();
+        return $qb->execute();
+    }
 //    /**
 //     * @return Mesa[] Returns an array of Mesa objects
 //     */
@@ -35,7 +39,6 @@ class MesaRepository extends ServiceEntityRepository
         ;
     }
     */
-
     /*
     public function findOneBySomeField($value): ?Mesa
     {

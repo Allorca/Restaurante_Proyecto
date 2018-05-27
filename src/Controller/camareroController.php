@@ -1,15 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Alexis
+ * User: JuanMa
  * Date: 25/04/2018
- * Time: 17:33
+ * Time: 23:43
  */
-
 namespace App\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 class camareroController extends Controller
 {
     /**
@@ -20,7 +18,6 @@ class camareroController extends Controller
     {
         return $this->render('camarero.html.twig');
     }
-
     /**
      *@return \Symfony\Component\HttpFoundation\Response
      * @Route(path="/mesas", name="app_mesas")
