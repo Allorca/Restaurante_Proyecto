@@ -14,6 +14,7 @@
         body{background-color:whitesmoke;}
         a{color: #ffa500; font-family: Ebrima;}
         h4{font-family: Ebrima;}
+        #aa{ float: right; }
     </style>
 {% endblock %}
 
@@ -24,9 +25,8 @@
                 <div class="bg-dark p-4">
                     <h4 class="text-white">OPCIONES</h4>
                     <span class="text-muted"><a href="{{ path('app_cocina') }}" aria-pressed="">Cocina</a></span>&nbsp;&nbsp;&nbsp;
-                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="">Salir</a></span>
+                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>
+                    <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
 
                 </div>
             </div>
@@ -44,8 +44,8 @@
             <ul class="list-group">
                 {% for comanda in comandas %}
                 <li class="list-group-item d-flex justify-content-between align-items-center" id="b">
-                    MESA
-                    <span class="badge badge-primary badge-pill" id="c">{{ comanda.mesa.numero }}</span>
+                    MESA {{  comanda.mesa.numero }}
+                    <span class="badge badge-primary badge-pill" id="c">{{ comanda.camarero.nombre }}</span>
                 </li>
 
 

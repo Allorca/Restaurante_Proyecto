@@ -4,6 +4,7 @@
      <style>
          a{color: #ffa500; font-family: Ebrima;}
          h4{ font-family: Ebrima; font-size: 1.5em;}
+         #aa{ float: right; }
          .jumbotron{height: 45%; background-image: url("/images/imgindice5.jpg"); background-repeat: no-repeat; background-size: 100% 100%; height: 60%;}
      </style>
 
@@ -17,9 +18,8 @@
             <div class="bg-dark p-4">
                 <h4 class="text-white">OPCIONES</h4>
                 <span class="text-muted"><a href="{{ path('app_cocina') }}" aria-pressed="true">Cocina</a></span>&nbsp;&nbsp;&nbsp;
-                <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="true">Camarero</a></span><br><br>
-                <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="true" id="salir">Salir</a></span>
-
+                <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="true">Camarero</a></span>
+                <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="" id="aa">Salir</a></span>
             </div>
         </div>
 
@@ -35,10 +35,7 @@
     </div>
 
 
-
-
-
     <a href="{{ path('app_camarero') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">CAMARERO</a><br>
-    <a href="{{ path('app_cocina') }}" class="btn btn-success btn-lg btn-block" role="button" aria-pressed="true">COCINA</a><br>
-
+    <a href="{{ path('app_cocina') }}" class="btn btn-dark btn-lg btn-block" role="button" aria-pressed="true">COCINA</a><br>
+    <a href="{{ path('app_inicio') }}" class="btn btn-success btn-lg btn-block" id="a" role="button" aria-pressed="true">VOLVER</a>
 {% endblock %}

@@ -70,32 +70,30 @@ class productosController extends Controller
      * @Route(path="/productos/actualizar{id}", name="app_producto_actualizar")
      */
     public function actualizarAction(EntityManagerInterface $em, $id)
-    {   ini_set('memory_limit', '512M');
-        $productRepo = $em->getRepository('\App\Entity\Producto');
+    {
+        $productRepo = $em->getRepository(Producto::class);
         $product = $productRepo->find($id);
         $form = $this->createForm(ProductoType::class, $product);
-        return $this->render('actualizarproducto.html.twig',
-            ['producto' => $product,
-                'form'=> $form->createView()]
-        );
+        return $this->render('actualizarproducto.html.twig',[
+            'producto' => $product,
+            'form'  => $form->createView()
+        ]);
     }
     /**
-     *@param Request $request
-     *@return \Symfony\Component\HttpFoundation\Response
-     *@Route(path="/productos/actualizando{id}", name="app_producto_haceractualizar")
+     * @param Request $request
+     * @Route(path="/productos/actualizando{id}", name="app_actualizar")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function hacerActualizarAccion(EntityManagerInterface $em, Request $request, $id)
+    public function hacerActualizarAction(EntityManagerInterface $em, Request $request, $id)
     {
-        ini_set('memory_limit', '512M');
-        $productRepo = $em->getRepository('App\Entity\Producto');
+        $productRepo = $em->getRepository(Producto::class);
         $product = $productRepo->find($id);
         $form = $this->createForm(ProductoType::class, $product);
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if($form->isValid()) {
             $em->flush();
             return $this->redirectToRoute('app_producto_listar');
         }
-        return $this->redirectToRoute('app_producto_listar');
     }
     /**
      * @param Request $request
