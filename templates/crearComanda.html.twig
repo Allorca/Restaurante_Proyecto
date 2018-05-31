@@ -8,6 +8,7 @@
         .form-control{  font-family: Ebrima;}
         a{color: #ffa500; font-family: Ebrima;}
         h4{font-family: Ebrima;}
+        #aa{ float: right; }
     </style>
 {% endblock %}
 
@@ -24,9 +25,8 @@
                 <div class="bg-dark p-4">
                     <h4 class="text-white">OPCIONES</h4>
                     <span class="text-muted"><a href="{{ path('app_listar_comandaC') }}" aria-pressed="">Lista</a></span>&nbsp;&nbsp;&nbsp;
-                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span class="text-muted"><a href="{{ path('app_inicio') }}" aria-pressed="">Salir</a></span>
+                    <span class="text-muted"><a href="{{ path('app_camarero') }}" aria-pressed="">Volver</a></span>
+                    <span class="text-muted" id="aa"><a href="{{ path('app_inicio') }}" aria-pressed="">Salir</a></span>
                 </div>
             </div>
             <nav class="navbar navbar-dark bg-dark">
@@ -44,7 +44,7 @@
         <br>
         <div class="col-form-label">{{ form_label(form.prod3) }}</div><div>{{ form_widget(form.prod3, { 'attr': {'class': 'form-control'} }) }}</div>
         <br>
-        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-dark btn-lg btn-block'} }) }}&nbsp; &nbsp; <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg offset-sm-2">VOLVER</a>
+        {{ form_widget(form.save, { 'attr': {'class': 'btn btn-dark btn-lg btn-block'} }) }}&nbsp; &nbsp; <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg btn-block">VOLVER</a>
         <br>
         <br>
         <br>

@@ -63,6 +63,6 @@ class CuentaController extends Controller
             }
         }
         $em->flush();
-        return $this->redirectToRoute('app_camarero');
+        return $this->redirectToRoute('app_cuenta_mesa', array('numeromesa'=>$numeromesa));
     }
 }

@@ -9,12 +9,16 @@
         #f{background-color: limegreen;}
         #c{background-color: #313131;}
         #b{font-weight: bold; color: whitesmoke; background-color: #999999;}
-        #e{font-family: Ebrima; font-size: 0.8em; }
+        #e{font-family: Ebrima; font-size: 0.8em;}
         h2{text-align: center; color: #ffa500; font-weight: bold;}
         body{background-color:whitesmoke;}
         a{color: #ffa500; font-family: Ebrima;}
         h4{font-family: Ebrima;}
         #aa{ float: right; }
+
+
+
+
     </style>
 {% endblock %}
 
@@ -36,10 +40,8 @@
                 </button>
             </nav>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-8">
+        <div class="col-xs-12 col-sm-6 col-md-8" id="listacam">
             <br><h2>LISTA PEDIDOS</h2>
-
-
             <br>
             <ul class="list-group">
                 {% for comanda in comandas %}
@@ -71,9 +73,5 @@
 
 
             <a href="{{ path('app_camarero') }}" role="button" class="btn btn-success btn-lg  btn-block">VOLVER</a>
-
-
-
-
         </div>
     {% endblock %}
